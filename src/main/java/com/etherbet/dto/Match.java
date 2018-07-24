@@ -1,10 +1,7 @@
 package com.etherbet.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.*;
-import org.apache.logging.log4j.util.Strings;
 
 import java.util.List;
 
@@ -20,16 +17,16 @@ import java.util.List;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Match {
-    public Integer id;
-    public String homeTeamName;
-    public Integer homeId;
-    public Integer awayId;
-    public String awayTeamName;
-    public String utcDate;
-    public String status;
+    private Integer id;
+    private String homeTeamName;
+    private Integer homeId;
+    private Integer awayId;
+    private String awayTeamName;
+    private String utcDate;
+    private String status;
     private HomeTeam homeTeam;
     private AwayTeam awayTeam;
-    public Score score;
-    public List<Betting> bettings;
+    private Score score;
+    private List<Betting> bettings;
 
 }

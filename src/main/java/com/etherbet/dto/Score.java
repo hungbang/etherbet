@@ -16,6 +16,6 @@ import lombok.*;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Score {
-    public String winner;
+    private String winner;
     private FullTime fullTime;
 }
