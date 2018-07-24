@@ -10,7 +10,7 @@ import org.springframework.core.env.Environment;
 
 public class IpfsManagerFactory {
 
-    public String multiaddress;
+    private String multiaddress;
 
     private static IpfsManagerFactory ipfsManagerFactory = new IpfsManagerFactory();
     private IPFS ipfs;
