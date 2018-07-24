@@ -26,7 +26,6 @@ public class IpfsManagerFactory {
 
     public IPFS createIpfs() {
         if (ipfs == null) {
-            System.out.println("======="+multiaddress);
             return new IPFS(multiaddress);
         }
         return ipfs;
