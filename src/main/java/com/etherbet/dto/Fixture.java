@@ -18,6 +18,7 @@ import java.util.List;
 @Getter
 @Builder
 public class Fixture {
+    public static final String FIXTURE_PATH = "fixture.json";
     @JsonProperty("competition")
     private Competition competition;
     @JsonProperty("matches")

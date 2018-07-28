@@ -1,33 +1,14 @@
 package com.etherbet.ipfs;
 
-import com.etherbet.core.ApplicationContextHolder;
 import io.ipfs.api.IPFS;
-import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by KAI on 7/24/18.
  */
-
+@Component
 public class IpfsManagerFactory {
-
-    private String multiaddress;
-
-    private static IpfsManagerFactory ipfsManagerFactory = new IpfsManagerFactory();
-    private IPFS ipfs;
-
-    private IpfsManagerFactory() {
-        Environment environment = (Environment) ApplicationContextHolder.getApplicationContext().getBean("environment");
-        this.multiaddress = environment.getProperty("ipfs.multiadress");
-    }
-
-    public static IpfsManagerFactory getInstance() {
-        return ipfsManagerFactory;
-    }
-
-    public IPFS createIpfs() {
-        if (ipfs == null) {
-            return new IPFS(multiaddress);
-        }
-        return ipfs;
+    public IPFS getIpfsInstance(String multiaddress){
+        return IpfsCreator.getIpfs(multiaddress);
     }
 }
