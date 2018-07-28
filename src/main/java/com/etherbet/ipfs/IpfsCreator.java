@@ -1,6 +1,7 @@
 package com.etherbet.ipfs;
 
 import io.ipfs.api.IPFS;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,12 +11,12 @@ import org.springframework.stereotype.Component;
  */
 public class IpfsCreator {
 
-    public static IPFS getIpfs(String multiAddress){
-        return new IPFS(multiAddress);
+    public static CustomIPFS getIpfs(String multiAddress){
+        return new CustomIPFS(multiAddress);
     }
 
-    public static IPFS getIpfs(String host, int port){
-        return new IPFS(host, port);
+    public static CustomIPFS getIpfs(String host, int port, String version){
+        return new CustomIPFS(host, port, version , true);
     }
 
 

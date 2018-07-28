@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,7 +19,7 @@ import java.nio.file.Paths;
 import java.util.Calendar;
 
 @SpringBootApplication
-//@PropertySource(value = {"file:${vn.fb.appDir}/config/fb.application.properties"})
+@PropertySource(value = {"file:${vn.fb.appDir}/config/footballbet.application.properties"})
 @EnableScheduling
 public class EtherbetApplication implements CommandLineRunner{
 

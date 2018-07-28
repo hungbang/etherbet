@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 /**
  * Created by KAI on 7/24/18.
@@ -39,5 +40,11 @@ public class IpfsServiceImpl implements IpfsService<MerkleNode> {
     public MerkleNode addFile(String path) throws IOException {
         NamedStreamable.FileWrapper file = new NamedStreamable.FileWrapper(new File(path));
         return ipfsManagerFactory.getIpfsInstance(multiAddress).add(file).get(0);
+    }
+
+    @Override
+    public void publish(String hash) throws IOException {
+        Multihash multihash = Multihash.fromBase58(hash);
+        ipfsManagerFactory.getIpfsInstance(multiAddress).name.publish(multihash);
     }
 }

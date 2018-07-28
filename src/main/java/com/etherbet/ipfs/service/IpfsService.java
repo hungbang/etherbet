@@ -1,6 +1,7 @@
 package com.etherbet.ipfs.service;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 /**
  * Created by KAI on 7/24/18.
@@ -31,5 +32,11 @@ public interface IpfsService<T> {
      * @return
      */
     T addFile(String path) throws IOException;
+
+    /**
+     * publish hash local to online network
+     * @param hash
+     */
+    void publish(String hash) throws IOException;
 
 }

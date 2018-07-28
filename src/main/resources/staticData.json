@@ -29,7 +29,7 @@
       "lastUpdated": "2018-07-07T16:01:35Z",
       "homeTeam": {
         "id": 66,
-        "name": "Manchester United FC"
+        "name": "Manu FC"
       },
       "awayTeam": {
         "id": 338,
@@ -39,12 +39,12 @@
         "winner": null,
         "duration": "REGULAR",
         "fullTime": {
-          "homeTeam": null,
-          "awayTeam": null
+          "homeTeam": 0,
+          "awayTeam": 1
         },
         "halfTime": {
-          "homeTeam": null,
-          "awayTeam": null
+          "homeTeam": 0,
+          "awayTeam": 1
         },
         "extraTime": {
           "homeTeam": null,

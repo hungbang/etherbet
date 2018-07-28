@@ -8,6 +8,7 @@ import lombok.var;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -37,12 +38,12 @@ public class EtherScheduler {
     @Autowired
     public ObjectMapper objectMapper;
 
-    @Scheduled(cron = "0 * * * * ?")
+    @Scheduled(cron = "${cron.expression}")
     public void pushFixtureToIPFS() {
         long startTime = Calendar.getInstance().getTimeInMillis();
 
         LOGGER.info("Starting push fixture to IPFS... ", Calendar.getInstance().getTime());
-        Fixture fixture = prepareFixtureForTest();
+        final Fixture fixture = prepareFixtureForTest();
         try {
             Map<Integer, String> indexHash = EtherJob.process(ipfsService, fixture);
             var json = objectMapper.writeValueAsString(indexHash);
