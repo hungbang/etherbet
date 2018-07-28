@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,5 +37,11 @@ public class FixtureController {
     public ResponseEntity getAllIndexHash() throws IOException {
         Map<Integer, String> indexHash = fileService.getIndexHash();
         return ResponseEntity.ok(indexHash);
+    }
+
+    @GetMapping()
+    public ResponseEntity getMatchesByCriterion(@RequestParam String hash) throws IOException {
+        byte[] result = ipfsService.getBytes(hash);
+        return ResponseEntity.ok(new String(result));
     }
 }
